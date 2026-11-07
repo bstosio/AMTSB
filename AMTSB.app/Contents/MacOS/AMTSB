@@ -1,0 +1,13 @@
+#!/bin/bash
+# AMTSB.app – uruchamia AMTSB dwuklikiem w Finderze (z ikoną aplikacji).
+# Gdy biblioteki nie są jeszcze zainstalowane, otwiera Terminal z instalacją (amtsb.sh).
+REPO="$(cd "$(dirname "$0")/../../.." && pwd)"      # folder, w którym leży AMTSB.app
+AMT_DIR="${AMT_HOME:-$HOME/.amt}"
+PY="$AMT_DIR/venv/bin/python"
+STAMP="$AMT_DIR/.amtsb-deps-$(cksum < "$REPO/requirements.txt" | cut -d' ' -f1)"
+
+if [ -x "$PY" ] && [ -f "$STAMP" ]; then
+  exec "$PY" "$REPO/amtsb.py" "$@"
+fi
+osascript -e "tell application \"Terminal\" to do script \"bash '$REPO/amtsb.sh'\"" \
+          -e 'tell application "Terminal" to activate'

@@ -1,0 +1,27 @@
+faster-whisper>=1.1
+sentencepiece
+mss
+customtkinter>=5.2
+Pillow
+
+# Windows: OCR wbudowany w system i dźwięk z komputera (WASAPI)
+PyAudioWPatch; sys_platform == "win32"
+winrt-runtime; sys_platform == "win32"
+winrt-Windows.Foundation; sys_platform == "win32"
+winrt-Windows.Foundation.Collections; sys_platform == "win32"
+winrt-Windows.Globalization; sys_platform == "win32"
+winrt-Windows.Graphics.Imaging; sys_platform == "win32"
+winrt-Windows.Media.Ocr; sys_platform == "win32"
+winrt-Windows.Storage.Streams; sys_platform == "win32"
+
+# macOS i Linux: dźwięk i skróty klawiszowe
+soundcard; sys_platform != "win32"
+pynput; sys_platform != "win32"
+
+# macOS: OCR Apple Vision i okna nad pełnym ekranem
+pyobjc-framework-Vision; sys_platform == "darwin"
+pyobjc-framework-Quartz; sys_platform == "darwin"
+pyobjc-framework-Cocoa; sys_platform == "darwin"
+
+# Linux: OCR Tesseract (sam program: sudo apt install tesseract-ocr)
+pytesseract; sys_platform == "linux"
