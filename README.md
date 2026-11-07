@@ -1,5 +1,7 @@
 # AMTSB – Automatic Movie Translator SuBtitles
 
+[English](README.en.md) · **Polski**
+
 Tłumaczenie napisów **na żywo**, nad dowolnym odtwarzaczem: Netflix, YouTube, VLC,
 przeglądarka, także w pełnym ekranie. Działa lokalnie w Windows, macOS i Linuksie.
 
